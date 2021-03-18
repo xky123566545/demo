@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.demo.role.mapper.RoleMapper">
+   <select id="countRoleId" parameterType="java.lang.String" resultType="int">
+       select count(role_id)
+       from role
+       where role_id = #{roleId}
+   </select>
+
+<!--    新增角色-->
+    <insert id="addRole" parameterType="com.example.demo.role.entity.RoleInfo">
+        insert into role
+        values
+        (
+            #{roleId},
+            #{roleName},
+            0,
+            #{createUser},
+            now(),
+            #{createUserName}
+        )
+    </insert>
+<!--    修改角色信息-->
+    <update id="updateRole" parameterType="com.example.demo.role.entity.RoleInfo">
+        update role
+        set
+            role_name = #{roleName},
+            create_user = #{createUser},
+            create_time = now(),
+            create_username = #{createUserName}
+        where role_id = #{roleId}
+    </update>
+<!--    删除角色信息-->
+    <delete id="deleteRole" parameterType="java.util.List">
+        update role
+        set
+        status = 1
+        where role_id in
+        <foreach collection="roleId" index="index" separator="," item="item" open="(" close=")">
+            #{item}
+        </foreach>
+    </delete>
+<!--    查询角色信息-->
+    <select id="listRole" parameterType="java.util.Map" resultType="com.example.demo.role.entity.RoleInfo">
+    select *
+    from role
+    <where>
+        <if test="roleInfo.roleId!=null and roleInfo.roleId!=''">
+            and role_id like concat('%',#{roleInfo.roleId},'%')
+        </if>
+        <if test="roleInfo.roleName!=null and roleInfo.roleName!=''">
+            and role_name like concat('%',#{roleInfo.roleName},'%')
+        </if>
+
+        <if test="roleInfo.createUser!=null and roleInfo.createUser!=''">
+            and create_user like concat('%',#{roleInfo.createUser},'%')
+        </if>
+        <if test="roleInfo.createUserName!=null and roleInfo.createUsername!=''">
+            and create_username like concat('%',#{roleInfo.createUserName},'%')
+        </if>
+        <if test="roleInfo.createTime!=null and roleInfo.createTime!=''">
+            and convert(varchar, create_time, 120) like concat('%', #{roleInfo.createTime},'%')
+        </if>
+    </where>
+    ORDER BY ROLE_ID DESC
+    </select>
+<!--    新增角色用户-->
+    <insert id="addRoleUser" parameterType="java.util.List">
+        insert into role_user
+        values
+        <foreach collection="userId" item="item" separator="," index="index">
+            (
+                #{roleId},
+                #{item},
+                0
+            )
+        </foreach>
+    </insert>
+<!--    为某一角色删除用户-->
+    <delete id="deleteRoleUser" parameterType="java.util.List">
+        update role_user
+        set
+            is_delete = 1
+        where user_id in
+        <foreach collection="userId" separator="," index="index" item="item" close=")" open="(">
+            #{item}
+        </foreach>
+        and role_id = #{roleId}
+    </delete>
+<!--    按条件查询某一角色的授权用户列表-->
+    <select id="getUsersByRole" parameterType="java.util.Map" resultType="com.example.demo.role.entity.RoleUserInfo">
+         select
+            u1.role_id,
+            u2.user_id,
+            u2.user_code,
+            u2.user_name,
+            u2.status,
+            u2.create_time,
+            u2.create_user
+        from role_user u1
+        inner join user u2
+        on u1.user_id = u2.user_code
+        where u1.is_delete = 0
+        and u2.status = 0
+        <if test="roleUserInfo.roleId!=null and roleUserInfo.roleId!=''">
+            and role_id like concat('%',#{roleInfo.roleId},'%')
+        </if>
+        <if test="roleUserInfo.userName!=null and roleUserInfo.userName!=''">
+            and userName like concat('%',#{roleUserInfo.userName},'%')
+        </if>
+        <if test="roleUserInfo.userCode!=null and roleUserInfo.userCode!=''">
+            and user_code like concat('%',#{roleUserInfo.userCode},'%')
+        </if>
+        <if test="roleUserInfo.createUser!=null and roleUserInfo.createUser!=''">
+            and create_user like concat('%',#{roleUserInfo.createUser},'%')
+        </if>
+        <if test="roleUserInfo.createTime!=null and roleUserInfo.createTime!=''">
+            and convert(varchar, create_time, 120) like concat('%', #{roleUserInfo.createTime},'%')
+        </if>
+    </select>
+</mapper>

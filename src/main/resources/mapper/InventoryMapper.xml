@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.demo.inventory.mapper.InventoryMapper">
+<!--    新增库存信息-->
+    <insert id="saveInventory" parameterType="com.example.demo.inventory.entity.InventoryInfo">
+        insert into inventory_manage
+        values
+        (
+            #{inventoryId},
+            #{inventoryName},
+            #{imgPath},
+            #{inventoryType},
+            #{inventoryDescribe},
+            #{inventorySize},
+            #{inventoryAddress},
+            #{inventoryInfo},
+            #{barcode},
+            #{inventoryOriPrice},
+            #{inventoryPrePrice},
+            #{inventoryCount},
+            #{createUser},
+            now(),
+            0
+
+        )
+    </insert>
+<!--    计算库存是否存在-->
+    <select id="countInventoryName" parameterType="java.lang.String" resultType="int">
+        select count(inventory_name)
+        from inventory_manage
+        where inventory_name = #{inventoryName}
+    </select>
+<!--    叠加数量-->
+    <update id="addInventoryCount">
+        update inventory_manage
+        set
+            inventory_count = inventory_count + #{inventoryCount}
+        where inventory_name = #{inventoryName}
+    </update>
+<!--    查询库存信息-->
+    <select id="listInventory" parameterType="java.util.Map" resultType="com.example.demo.inventory.entity.InventoryInfo">
+        select *
+        from inventory_manage
+        <where>
+        status = 0
+        <if test="inventory != null">
+            <if test="inventory.inventoryName != null and inventory.inventoryName != ''">
+                and inventory_name like concat('%',#{inventory.inventoryName},'%')
+            </if>
+            <if test="inventory.inventoryType != null and inventory.inventoryType != ''">
+                and inventory_type like concat('%',#{inventory.inventoryType},'%')
+            </if>
+            <if test="inventory.inventoryDescribe != null and inventory.inventoryDescribe != ''">
+                and inventory_describe like concat('%',#{inventory.inventoryDescribe},'%')
+            </if>
+            <if test="inventory.inventorySize != null and inventory.inventorySize != ''">
+                and inventory_size like concat('%',#{inventory.inventorySize},'%')
+            </if>
+            <if test="inventory.inventoryAddress != null and inventory.inventoryAddress != ''">
+                and inventory_address like concat('%',#{inventory.inventoryAddress},'%')
+            </if>
+            <if test="inventory.inventoryInfo != null and inventory.inventoryInfo != ''">
+                and inventory_info like concat('%',#{inventory.inventoryInfo},'%')
+            </if>
+            <if test="inventory.barcode != null and inventory.barcode != ''">
+                and barcode like concat('%',#{inventory.barcode},'%')
+            </if>
+            <if test="inventory.inventoryInfo != null and inventory.inventoryInfo != ''">
+                and inventory_info like concat('%',#{inventory.inventoryInfo},'%')
+            </if>
+            <if test="inventory.createUser != null and inventory.createUser != ''">
+                and create_user like concat('%',#{inventory.createUser},'%')
+            </if>
+            <if test="inventory.createTime != null and inventory.createTime != ''">
+                and convert(varchar,create_user,120) like concat('%',#{inventory.createUser},'%')
+            </if>
+
+        </if>
+        </where>
+    </select>
+<!--    修改库存信息-->
+    <update id="updateInventory" parameterType="com.example.demo.inventory.entity.InventoryInfo">
+        update inventory_manage
+        set
+            inventory_name      = #{inventoryName},
+            img_path            = #{imgPath},
+            inventory_type      = #{inventoryType},
+            inventory_describe  = #{inventoryDescribe},
+            inventory_size      = #{inventorySize},
+            inventory_address   = #{inventoryAddress},
+            inventory_info      = #{inventoryInfo},
+            barcode             = #{barcode},
+            inventory_ori_price = #{inventoryOriPrice},
+            inventory_pre_price = #{inventoryPrePrice},
+            inventory_count     = #{inventoryCount},
+            create_user         = #{createUser},
+            create_time         = now()
+        where inventory_id = #{inventoryId}
+    </update>
+<!--    删除库存信息-->
+    <delete id="deleteInventory" parameterType="java.util.List">
+        update inventory_manage
+        set
+            status = 1
+        where inventory_id in
+        <foreach collection="inventoryId" separator="," index="index" item="item" close=")" open="(">
+            #{item}
+        </foreach>
+    </delete>
+</mapper>

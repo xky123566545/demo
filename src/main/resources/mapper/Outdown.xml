@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.demo.outdown.mapper.OutdownMapper">
+<!--    修改仓库库存-->
+    <update id="updateCnt">
+        update inventory_manage
+        set
+            inventory_count = inventory_count - #{cnt}
+        where inventory_id = #{inventoryId}
+    </update>
+<!--    新增库存信息-->
+    <insert id="addOutdown" parameterType="com.example.demo.outdown.mapper.OutdownMapper">
+        insert into outdown
+        values
+        (
+            #{outdownId},
+            #{imgPath},
+            #{customerName},
+            #{customerPhone},
+            #{customerAddress},
+            #{inventoryName},
+            #{barcode},
+            #{outdownCnt},
+            #{outdownPrice},
+            #{outdownAllPrice},
+            now(),
+            #{createUser},
+            now(),
+            0
+        )
+    </insert>
+<!--    查询库存信息-->
+    <select id="listOutdown" parameterType="java.util.Map" resultType="com.example.demo.outdown.entity.OutdownInfo">
+        select *
+        from outdown
+        <where>
+        status = 0
+        <if test="outdown != null">
+            <if test="outdown.customerName != null and outdown.customerName != ''">
+                and customer_name like concat('%',#{outdown.customerName},'%')
+            </if>
+            <if test="outdown.customerPhone != null and outdown.customerPhone != ''">
+                and customer_phone like concat('%',#{outdown.customerPhone},'%')
+            </if>
+            <if test="outdown.customerAddress != null and outdown.customerAddress != ''">
+                and customer_address like concat('%',#{outdown.customerAddress},'%')
+            </if>
+            <if test="outdown.inventoryName != null and outdown.inventoryName != ''">
+                and inventory_name like concat('%',#{outdown.inventoryName},'%')
+            </if>
+            <if test="outdown.barcode != null and outdown.barcode != ''">
+                and barcode like concat('%',#{outdown.barcode},'%')
+            </if>
+            <if test="outdown.createUser != null and outdown.createUser != ''">
+                and create_user like concat('%',#{outdown.createUser},'%')
+            </if>
+            <if test="outdown.createTime != null and outdown.createTime != ''">
+                and convert(varchar,create_user,120) like concat('%',#{outdown.createUser},'%')
+            </if>
+            <if test="outdown.outdownTime != null and outdown.outdownTime != ''">
+                and convert(varchar,outdown_time,120) like concat('%',#{outdown.outdownTime},'%')
+            </if>
+
+        </if>
+        </where>
+    </select>
+<!--    修改库存信息-->
+    <update id="updateOutdown" parameterType="com.example.demo.outdown.entity.OutdownInfo">
+        update outdown
+        set
+            img_path            = #{imgPath},
+            customer_name      = #{customerName},
+            customer_phone  = #{customerPhone},
+            customer_address      = #{customerAddress},
+            inventory_name   = #{inventoryName},
+            barcode             = #{barcode},
+            outdown_cnt  = #{outdownCnt},
+            outdown_price = #{outdownPrice},
+            outdown_all_price     = #{outdownAllPrice}
+        where outdown_id = #{outdownId}
+    </update>
+<!--    删除库存信息-->
+    <delete id="updateOutStatus" parameterType="java.lang.String">
+        update outdown
+        set
+            status = #{status}
+        where outdown_id = #{outdownId}
+    </delete>
+</mapper>

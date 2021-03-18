@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.demo.menu.mapper.MenuMapper">
+<!--    列表查询菜单信息-->
+    <select id="listMenu" resultType="com.example.demo.menu.entity.MenuInfo">
+        select *
+        from menu
+    </select>
+<!--    删除角色菜单信息-->
+    <delete id="deleteRoleMenu">
+        delete from role_menu
+        where role_id = #{roleId}
+    </delete>
+<!--    新增角色菜单-->
+    <insert id="updateRoleMenu" parameterType="java.util.List">
+        insert into role_menu
+        values
+        <foreach collection="menuId"  item="item" index="index" separator=",">
+            (
+                #{roleId},
+                #{item}
+            )
+        </foreach>
+    </insert>
+<!--    查询某一角色的授权菜单-->
+    <select id="getRoleMenu" parameterType="java.lang.String" resultType="java.lang.String">
+        select menu_id
+        from role_menu
+        where role_id = #{roleId}
+    </select>
+    <!--    查询某一角色的授权叶子菜单-->
+    <select id="getRoleMenuLeaf" parameterType="java.lang.String" resultType="java.lang.String">
+        select m2.menu_id
+        from role_menu m1
+        inner join menu m2
+        on m1.menu_id = m2.menu_parent_id
+        where m1.role_id = #{roleId}
+        and m2.is_leaf = 1
+    </select>
+</mapper>

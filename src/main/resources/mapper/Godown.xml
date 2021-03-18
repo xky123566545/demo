@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.demo.godown.mapper.GodownMapper">
+<!--    新增库存信息-->
+    <insert id="addGodown" parameterType="com.example.demo.godown.entity.GodownInfo">
+        insert into godown
+        values
+        (
+            #{godownId},
+            #{godownName},
+            #{imgPath},
+            #{godownType},
+            #{godownDescribe},
+            #{godownSize},
+            #{godownAddress},
+            #{godownInfo},
+            #{barcode},
+            #{godownOriPrice},
+            #{godownPrePrice},
+            #{godownCount},
+            #{createUser},
+            now(),
+            null,
+            0
+
+        )
+    </insert>
+<!--    查询库存信息-->
+    <select id="listGodown" parameterType="java.util.Map" resultType="com.example.demo.godown.entity.GodownInfo">
+        select *
+        from godown
+        <where>
+        status = 0
+        <if test="godown != null">
+            <if test="godown.godownName != null and godown.godownName != ''">
+                and godown_name like concat('%',#{godown.godownName},'%')
+            </if>
+            <if test="godown.godownType != null and godown.godownType != ''">
+                and godown_type like concat('%',#{godown.godownType},'%')
+            </if>
+            <if test="godown.godownDescribe != null and godown.godownDescribe != ''">
+                and godown_describe like concat('%',#{godown.godownDescribe},'%')
+            </if>
+            <if test="godown.godownSize != null and godown.godownSize != ''">
+                and godown_size like concat('%',#{godown.godownSize},'%')
+            </if>
+            <if test="godown.godownAddress != null and godown.godownAddress != ''">
+                and godown_address like concat('%',#{godown.godownAddress},'%')
+            </if>
+            <if test="godown.godownInfo != null and godown.godownInfo != ''">
+                and godown_info like concat('%',#{godown.godownInfo},'%')
+            </if>
+            <if test="godown.barcode != null and godown.barcode != ''">
+                and barcode like concat('%',#{godown.barcode},'%')
+            </if>
+            <if test="godown.godownInfo != null and godown.godownInfo != ''">
+                and godown_info like concat('%',#{godown.godownInfo},'%')
+            </if>
+            <if test="godown.createUser != null and godown.createUser != ''">
+                and create_user like concat('%',#{godown.createUser},'%')
+            </if>
+            <if test="godown.createTime != null and godown.createTime != ''">
+                and convert(varchar,create_user,120) like concat('%',#{godown.createUser},'%')
+            </if>
+
+        </if>
+        </where>
+    </select>
+<!--    修改库存信息-->
+    <update id="updateGodown" parameterType="com.example.demo.godown.entity.GodownInfo">
+        update godown
+        set
+            godown_name         = #{godownName},
+            img_path            = #{imgPath},
+            godown_type      = #{godownType},
+            godown_describe  = #{godownDescribe},
+            godown_size      = #{godownSize},
+            godown_address   = #{godownAddress},
+            godown_info      = #{godownInfo},
+            barcode             = #{barcode},
+            godown_ori_price = #{godownOriPrice},
+            godown_pre_price = #{godownPrePrice},
+            godown_count     = #{godownCount},
+            create_user         = #{createUser},
+            godown_time         = #{godownTime},
+            create_time         = now()
+        where godown_id = #{godownId}
+    </update>
+<!--    删除库存信息-->
+    <delete id="updateStatus" parameterType="java.lang.String">
+        update godown
+        set
+            status = #{status},
+            godown_time = now()
+        where godown_id = #{godownId}
+    </delete>
+</mapper>
