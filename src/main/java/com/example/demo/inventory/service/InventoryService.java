@@ -22,4 +22,16 @@ public interface InventoryService {
      * 删除库存信息
      */
     AppResponse deleteInventory(List<String> inventoryId);
+    /**
+     * 统计入库成功，失败数
+     */
+    AppResponse countGoDownNum();
+    /**
+     * 统计出库成功，失败数
+     */
+    AppResponse countOutDownNum();
+    /**
+     * 统计出库成功，失败数
+     */
+    AppResponse countInventoryType();
 }

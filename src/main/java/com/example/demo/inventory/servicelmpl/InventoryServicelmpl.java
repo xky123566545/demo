@@ -10,6 +10,7 @@ import com.github.pagehelper.PageHelper;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.text.DecimalFormat;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -71,5 +72,42 @@ public class InventoryServicelmpl implements InventoryService {
             return AppResponse.bizError("删除失败");
         }
         return AppResponse.success("删除成功");
+    }
+
+    @Override
+    public AppResponse countGoDownNum() {
+        Integer bad = inventoryMapper.countGoDownNum("2");
+        Integer all = inventoryMapper.countGoDownNum("1");
+        Integer success = all - bad;
+        Integer successRateI = success*100/all;
+        DecimalFormat df = new DecimalFormat("0.0");
+        String successRate = df.format(successRateI) + "%";
+        Map<String,Object> param = new HashMap<>();
+        param.put("成功",success);
+        param.put("失败",bad);
+        param.put("成功率",successRate);
+        return AppResponse.success("查询成功",param);
+    }
+
+    @Override
+    public AppResponse countOutDownNum() {
+        Integer bad = inventoryMapper.countOutDownNum("2");
+        Integer all = inventoryMapper.countOutDownNum("1");
+        Integer success = all - bad;
+        Integer successRateI = success*100/all;
+        DecimalFormat df = new DecimalFormat("0.0");
+        String successRate = df.format(successRateI) + "%";
+        Map<String,Object> param = new HashMap<>();
+        param.put("成功",success);
+        param.put("失败",bad);
+        param.put("成功率",successRate);
+        return AppResponse.success("查询成功",param);
+    }
+
+    @Override
+    public AppResponse countInventoryType() {
+        Map param = new HashMap<>();
+        List<Map> list = inventoryMapper.countInventoryType();
+        return AppResponse.success("查询成功",list);
     }
 }

@@ -33,4 +33,16 @@ public interface InventoryMapper {
      * 删除库存信息
      */
     int deleteInventory(@Param("inventoryId") List<String> inventoryId);
+    /**
+     * 查询成功失败数
+     */
+    int countGoDownNum(@Param("status") String status);
+    /**
+     * 查询成功失败数
+     */
+    int countOutDownNum(@Param("status") String status);
+    /**
+     * 查询成功失败数
+     */
+    List<Map> countInventoryType();
 }

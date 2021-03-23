@@ -75,4 +75,40 @@ public class InventoryController {
         }
     }
 
+    @ApiOperation(value = "统计入库成功，失败数")
+    @PostMapping("/countGoDownNum")
+    public AppResponse countGoDownNum(){
+        try{
+            return inventoryService.countGoDownNum();
+        }catch (Exception e){
+            logger.error("统计失败");
+            System.out.println(e.toString());
+            throw e;
+        }
+    }
+
+    @ApiOperation(value = "统计出库成功，失败数")
+    @PostMapping("/countOutDownNum")
+    public AppResponse countOutDownNum(){
+        try{
+            return inventoryService.countOutDownNum();
+        }catch (Exception e){
+            logger.error("统计失败");
+            System.out.println(e.toString());
+            throw e;
+        }
+    }
+
+    @ApiOperation(value = "统计库存类型，数量")
+    @PostMapping("/countInventoryType")
+    public AppResponse countInventoryType(){
+        try{
+            return inventoryService.countInventoryType();
+        }catch (Exception e){
+            logger.error("统计失败");
+            System.out.println(e.toString());
+            throw e;
+        }
+    }
+
 }

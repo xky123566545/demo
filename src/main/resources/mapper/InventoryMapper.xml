@@ -107,4 +107,37 @@
             #{item}
         </foreach>
     </delete>
+<!--    查询成功失败数量-->
+    <select id="countGoDownNum" parameterType="java.lang.String" resultType="int">
+        select count(status)
+        from godown
+        <where>
+        1 = 1
+            <if test="status != 1 ">
+                and status = 2
+            </if>
+        </where>
+    </select>
+    <!--    查询出库成功失败数量-->
+    <select id="countOutDownNum" parameterType="java.lang.String" resultType="int">
+        select count(status)
+        from outdown
+        <where>
+            1 = 1
+            <if test="status != 1 ">
+                and status = 2
+            </if>
+        </where>
+    </select>
+<!--    Map-->
+    <resultMap id="map" type="Map">
+        <result column="inventoryType" jdbcType="VARCHAR" property="inventoryType"></result>
+        <result column="cnt" property="cnt" jdbcType="VARCHAR"></result>
+    </resultMap>
+<!--    查询类型分类-->
+    <select id="countInventoryType" resultMap="map" >
+        select count(inventory_type) 'cnt',inventory_type 'inventoryType'
+        from inventory_manage
+        group by inventory_type
+    </select>
 </mapper>

@@ -3703,3 +3703,126 @@ Using generated security password: 0a3ec852-4d75-4a87-ae13-de87c79aee67
                     org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
 2021-03-18 17:03:57 25344 [34mINFO [0;39m [module.name_IS_UNDEFINED|http-nio-8082-exec-1]
                     org.springframework.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2021-03-18 20:14:33 2055 [34mINFO [0;39m [module.name_IS_UNDEFINED|restartedMain]
+                    com.example.demo.DemoApplication - Starting DemoApplication using Java 1.8.0_241 on DESKTOP-5TN1T53 with PID 2104 (C:\Users\Administrator\Desktop\毕业设计项目\MES系统\demo\target\classes started by Administrator in C:\Users\Administrator\Desktop\毕业设计项目\MES系统\demo)
+2021-03-18 20:14:33 2059 [34mINFO [0;39m [module.name_IS_UNDEFINED|restartedMain]
+                    com.example.demo.DemoApplication - The following profiles are active: dev
+2021-03-18 20:14:33 2125 [34mINFO [0;39m [module.name_IS_UNDEFINED|restartedMain]
+                    org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-03-18 20:14:33 2125 [34mINFO [0;39m [module.name_IS_UNDEFINED|restartedMain]
+                    org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-03-18 20:14:36 4472 [34mINFO [0;39m [module.name_IS_UNDEFINED|restartedMain]
+                    org.springframework.data.repository.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-03-18 20:14:36 4474 [34mINFO [0;39m [module.name_IS_UNDEFINED|restartedMain]
+                    org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-03-18 20:14:36 4599 [34mINFO [0;39m [module.name_IS_UNDEFINED|restartedMain]
+                    org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 100 ms. Found 0 Redis repository interfaces.
+2021-03-18 20:14:36 5001 [34mINFO [0;39m [module.name_IS_UNDEFINED|restartedMain]
+                    o.s.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'shiroConfig' of type [com.example.demo.login.config.shiro.ShiroConfig$$EnhancerBySpringCGLIB$$3efbc63c] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-03-18 20:14:36 5168 [34mINFO [0;39m [module.name_IS_UNDEFINED|restartedMain]
+                    o.s.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'mybatis-org.mybatis.spring.boot.autoconfigure.MybatisProperties' of type [org.mybatis.spring.boot.autoconfigure.MybatisProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-03-18 20:14:36 5177 [34mINFO [0;39m [module.name_IS_UNDEFINED|restartedMain]
+                    o.s.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration' of type [org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration$$EnhancerBySpringCGLIB$$d8c6be] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-03-18 20:14:36 5179 [34mINFO [0;39m [module.name_IS_UNDEFINED|restartedMain]
+                    o.s.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration$Hikari' of type [org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration$Hikari] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-03-18 20:14:36 5198 [34mINFO [0;39m [module.name_IS_UNDEFINED|restartedMain]
+                    o.s.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'spring.datasource-org.springframework.boot.autoconfigure.jdbc.DataSourceProperties' of type [org.springframework.boot.autoconfigure.jdbc.DataSourceProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-03-18 20:14:36 5264 [34mINFO [0;39m [module.name_IS_UNDEFINED|restartedMain]
+                    o.s.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'dataSource' of type [com.zaxxer.hikari.HikariDataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-03-18 20:14:37 5506 [34mINFO [0;39m [module.name_IS_UNDEFINED|restartedMain]
+                    o.s.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'sqlSessionFactory' of type [org.apache.ibatis.session.defaults.DefaultSqlSessionFactory] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-03-18 20:14:37 5512 [34mINFO [0;39m [module.name_IS_UNDEFINED|restartedMain]
+                    o.s.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'sqlSessionTemplate' of type [org.mybatis.spring.SqlSessionTemplate] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-03-18 20:14:37 5513 [34mINFO [0;39m [module.name_IS_UNDEFINED|restartedMain]
+                    o.s.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'loginMapper' of type [org.mybatis.spring.mapper.MapperFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-03-18 20:14:37 5515 [34mINFO [0;39m [module.name_IS_UNDEFINED|restartedMain]
+                    o.s.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'loginMapper' of type [com.sun.proxy.$Proxy68] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-03-18 20:14:37 5520 [34mINFO [0;39m [module.name_IS_UNDEFINED|restartedMain]
+                    o.s.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redisConfig' of type [com.example.demo.login.redis.RedisConfig$$EnhancerBySpringCGLIB$$65f21bde] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-03-18 20:14:37 5532 [34mINFO [0;39m [module.name_IS_UNDEFINED|restartedMain]
+                    o.s.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'spring.redis-org.springframework.boot.autoconfigure.data.redis.RedisProperties' of type [org.springframework.boot.autoconfigure.data.redis.RedisProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-03-18 20:14:37 5534 [34mINFO [0;39m [module.name_IS_UNDEFINED|restartedMain]
+                    o.s.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.boot.autoconfigure.data.redis.LettuceConnectionConfiguration' of type [org.springframework.boot.autoconfigure.data.redis.LettuceConnectionConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-03-18 20:14:37 5646 [34mINFO [0;39m [module.name_IS_UNDEFINED|restartedMain]
+                    o.s.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'lettuceClientResources' of type [io.lettuce.core.resource.DefaultClientResources] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-03-18 20:14:37 5754 [34mINFO [0;39m [module.name_IS_UNDEFINED|restartedMain]
+                    o.s.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redisConnectionFactory' of type [org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-03-18 20:14:37 5980 [34mINFO [0;39m [module.name_IS_UNDEFINED|restartedMain]
+                    o.s.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redisTemplate' of type [org.springframework.data.redis.core.RedisTemplate] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-03-18 20:14:37 5982 [34mINFO [0;39m [module.name_IS_UNDEFINED|restartedMain]
+                    o.s.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redisClient' of type [com.example.demo.login.redis.RedisClient] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-03-18 20:14:37 5985 [34mINFO [0;39m [module.name_IS_UNDEFINED|restartedMain]
+                    o.s.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'userRealm' of type [com.example.demo.login.config.shiro.UserRealm] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-03-18 20:14:38 7056 [34mINFO [0;39m [module.name_IS_UNDEFINED|restartedMain]
+                    o.s.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'securityManager' of type [org.apache.shiro.web.mgt.DefaultWebSecurityManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-03-18 20:14:38 7072 [34mINFO [0;39m [module.name_IS_UNDEFINED|restartedMain]
+                    o.s.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'jwtFilter' of type [com.example.demo.login.filter.JwtFilter] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-03-18 20:14:38 7135 [34mINFO [0;39m [module.name_IS_UNDEFINED|restartedMain]
+                    o.s.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'authorizationAttributeSourceAdvisor' of type [org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-03-18 20:14:38 7194 [34mINFO [0;39m [module.name_IS_UNDEFINED|restartedMain]
+                    o.s.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@25d5bba9' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-03-18 20:14:38 7201 [34mINFO [0;39m [module.name_IS_UNDEFINED|restartedMain]
+                    o.s.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-03-18 20:14:39 7706 [34mINFO [0;39m [module.name_IS_UNDEFINED|restartedMain]
+                    org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8082 (http)
+2021-03-18 20:14:39 7719 [34mINFO [0;39m [module.name_IS_UNDEFINED|restartedMain]
+                    org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8082"]
+2021-03-18 20:14:39 7721 [34mINFO [0;39m [module.name_IS_UNDEFINED|restartedMain]
+                    org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2021-03-18 20:14:39 7722 [34mINFO [0;39m [module.name_IS_UNDEFINED|restartedMain]
+                    org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.43]
+2021-03-18 20:14:39 7935 [34mINFO [0;39m [module.name_IS_UNDEFINED|restartedMain]
+                    org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2021-03-18 20:14:39 7936 [34mINFO [0;39m [module.name_IS_UNDEFINED|restartedMain]
+                    org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 5810 ms
+2021-03-18 20:14:40 8872 [34mINFO [0;39m [module.name_IS_UNDEFINED|restartedMain]
+                    o.s.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: 3b825af2-8cab-418a-9497-3cbc71bc32dd
+
+2021-03-18 20:14:40 8959 [34mINFO [0;39m [module.name_IS_UNDEFINED|restartedMain]
+                    springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-03-18 20:14:40 9162 [34mINFO [0;39m [module.name_IS_UNDEFINED|restartedMain]
+                    org.springframework.security.web.DefaultSecurityFilterChain - Will secure Mvc [pattern='/v2/api-docs'] with []
+2021-03-18 20:14:40 9162 [34mINFO [0;39m [module.name_IS_UNDEFINED|restartedMain]
+                    org.springframework.security.web.DefaultSecurityFilterChain - Will secure Mvc [pattern='/configuration/ui'] with []
+2021-03-18 20:14:40 9162 [34mINFO [0;39m [module.name_IS_UNDEFINED|restartedMain]
+                    org.springframework.security.web.DefaultSecurityFilterChain - Will secure Mvc [pattern='/swagger-resources/**'] with []
+2021-03-18 20:14:40 9162 [34mINFO [0;39m [module.name_IS_UNDEFINED|restartedMain]
+                    org.springframework.security.web.DefaultSecurityFilterChain - Will secure Mvc [pattern='/configuration/security'] with []
+2021-03-18 20:14:40 9163 [34mINFO [0;39m [module.name_IS_UNDEFINED|restartedMain]
+                    org.springframework.security.web.DefaultSecurityFilterChain - Will secure Mvc [pattern='/swagger-ui.html'] with []
+2021-03-18 20:14:40 9163 [34mINFO [0;39m [module.name_IS_UNDEFINED|restartedMain]
+                    org.springframework.security.web.DefaultSecurityFilterChain - Will secure Mvc [pattern='/webjars/**'] with []
+2021-03-18 20:14:40 9163 [34mINFO [0;39m [module.name_IS_UNDEFINED|restartedMain]
+                    org.springframework.security.web.DefaultSecurityFilterChain - Will secure Mvc [pattern='/api1/**'] with []
+2021-03-18 20:14:40 9163 [34mINFO [0;39m [module.name_IS_UNDEFINED|restartedMain]
+                    org.springframework.security.web.DefaultSecurityFilterChain - Will secure Mvc [pattern='/login/**'] with []
+2021-03-18 20:14:40 9243 [34mINFO [0;39m [module.name_IS_UNDEFINED|restartedMain]
+                    org.springframework.security.web.DefaultSecurityFilterChain - Will secure Or [Ant [pattern='/**']] with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@19970e72, org.springframework.security.web.context.SecurityContextPersistenceFilter@7d766510, org.springframework.security.web.header.HeaderWriterFilter@74624218, org.springframework.web.filter.CorsFilter@1c2ee761, org.springframework.security.web.authentication.logout.LogoutFilter@6e592b75, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4a3a094a, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@47a19ad3, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4497434e, org.springframework.security.web.session.SessionManagementFilter@19fe9042, org.springframework.security.web.access.ExceptionTranslationFilter@356d0d03, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@2cd77885]
+2021-03-18 20:14:40 9353 [34mINFO [0;39m [module.name_IS_UNDEFINED|restartedMain]
+                    org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2021-03-18 20:14:41 9465 [34mINFO [0;39m [module.name_IS_UNDEFINED|restartedMain]
+                    org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2021-03-18 20:14:41 10027 [34mINFO [0;39m [module.name_IS_UNDEFINED|restartedMain]
+                    org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8082"]
+2021-03-18 20:14:41 10049 [34mINFO [0;39m [module.name_IS_UNDEFINED|restartedMain]
+                    org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8082 (http) with context path ''
+2021-03-18 20:14:41 10049 [34mINFO [0;39m [module.name_IS_UNDEFINED|restartedMain]
+                    springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper - Context refreshed
+2021-03-18 20:14:41 10072 [34mINFO [0;39m [module.name_IS_UNDEFINED|restartedMain]
+                    springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+2021-03-18 20:14:41 10145 [34mINFO [0;39m [module.name_IS_UNDEFINED|restartedMain]
+                    springfox.documentation.spring.web.scanners.ApiListingReferenceScanner - Scanning for api listing references
+2021-03-18 20:14:42 10514 [34mINFO [0;39m [module.name_IS_UNDEFINED|restartedMain]
+                    com.example.demo.DemoApplication - Started DemoApplication in 9.61 seconds (JVM running for 12.811)
+2021-03-18 20:15:28 56622 [34mINFO [0;39m [module.name_IS_UNDEFINED|http-nio-8082-exec-1]
+                    org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-03-18 20:15:28 56622 [34mINFO [0;39m [module.name_IS_UNDEFINED|http-nio-8082-exec-1]
+                    org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2021-03-18 20:15:28 56624 [34mINFO [0;39m [module.name_IS_UNDEFINED|http-nio-8082-exec-1]
+                    org.springframework.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2021-03-18 20:15:42 70940 [34mINFO [0;39m [module.name_IS_UNDEFINED|http-nio-8082-exec-10]
+                    com.zaxxer.hikari.HikariDataSource - inventory - Starting...
+2021-03-18 20:15:42 71156 [34mINFO [0;39m [module.name_IS_UNDEFINED|http-nio-8082-exec-10]
+                    com.zaxxer.hikari.HikariDataSource - inventory - Start completed.
